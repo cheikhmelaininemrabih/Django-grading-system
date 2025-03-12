@@ -1,0 +1,26 @@
+# Ignore Python compiled files
+__pycache__/
+*.py[cod]
+*.swp
+.DS_Store
+
+# Ignore environment files
+env/
+venv/
+.venv/
+*.env
+
+# Ignore Django migrations
+**/migrations/*
+!**/migrations/__init__.py
+
+# Ignore database and logs
+db.sqlite3
+*.log
+
+# Ignore media/uploads (if needed)
+media/
+grading_results.xlsx
+results.xlsx
+~.xlsx
+exams/

@@ -1,0 +1,17 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2 class="text-center">Upload Exam Files</h2>
+
+{% if message %}
+<div class="alert alert-success">{{ message }}</div>
+{% endif %}
+
+<form action="{% url 'upload_exams' %}" method="post" enctype="multipart/form-data" class="mt-4">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Select Files or Folder:</label>
+        <input type="file" name="files" multiple class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Upload & Process</button>
+</form>
+{% endblock %}

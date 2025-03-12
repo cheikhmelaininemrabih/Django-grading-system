@@ -1,0 +1,31 @@
+{% extends 'core/base.html' %}
+{% block content %}
+<h2 class="text-center">Grading Results</h2>
+
+{% if error %}
+<div class="alert alert-danger">{{ error }}</div>
+{% endif %}
+
+{% if results %}
+<table class="table table-bordered mt-4">
+    <thead class="table-primary">
+        <tr>
+            <th>Matricule</th>
+            <th>Score</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.Matricule }}</td>
+            <td>{{ result.Score }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+<form action="{% url 'export_filtered_grades_excel' %}" method="get">
+    <button type="submit" class="btn btn-primary">📥 Export to Excel</button>
+</form>
+
+{% endif %}
+{% endblock %}
